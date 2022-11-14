@@ -1,0 +1,10 @@
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'pl.wilenskid.app',
+  appName: 'learning-helper',
+  webDir: 'dist/mobile',
+  bundledWebRuntime: false
+};
+
+export default config;

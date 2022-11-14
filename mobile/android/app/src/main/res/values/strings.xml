@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">learning-helper</string>
+    <string name="title_activity_main">learning-helper</string>
+    <string name="package_name">pl.wilenskid.app</string>
+    <string name="custom_url_scheme">pl.wilenskid.app</string>
+</resources>

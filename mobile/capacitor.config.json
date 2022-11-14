@@ -1,0 +1,11 @@
+{
+  "appId": "pl.wilenskid.app",
+  "appName": "learnin-helper",
+  "bundledWebRuntime": false,
+  "webDir": "dist/mobile",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
