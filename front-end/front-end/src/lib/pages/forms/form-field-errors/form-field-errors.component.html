@@ -1,0 +1,11 @@
+<div
+  *ngIf='isFieldHasErrors()'
+  class='form-field-errors'
+>
+  <span
+    *ngFor='let errorMessage of getFieldErrors()'
+    class='form-field-error-label'
+  >
+    {{errorMessage}}
+  </span>
+</div>

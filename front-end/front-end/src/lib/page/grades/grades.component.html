@@ -1,0 +1,39 @@
+<app-page-title></app-page-title>
+<app-page-body>
+
+  <app-page-header>
+    <ul class='nav'>
+      <li>
+        <a routerLink='/courses' class='nav-link px-2 link-dark'>Courses</a>
+      </li>
+      <li>
+        <a routerLink='/grades' class='nav-link px-2 link-secondary'>Grades</a>
+      </li>
+    </ul>
+  </app-page-header>
+
+  <table class='table'>
+    <thead>
+    <tr>
+      <th role='col'>Course Link</th>
+      <th role='col'>Start date</th>
+      <th role='col'>End date</th>
+      <th role='col'>Score</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor='let examInstance of examInstances'>
+      <td><a routerLink='/course/{{examInstance.courseId}}'>Related course</a></td>
+      <td>{{examInstance.startDateTime}}</td>
+      <td>{{examInstance.endDateTime}}</td>
+      <td>{{examInstance.score}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</app-page-body>
+
+<footer class='py-3 my-2'>
+  <p class='text-center text-muted'>© 2022 Damian Wileński</p>
+</footer>

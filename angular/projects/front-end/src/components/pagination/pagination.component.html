@@ -1,0 +1,15 @@
+<nav
+  class="d-flex m-auto w-50 align-content-center justify-content-center my-3"
+>
+  <ul class="pagination pagination-sm">
+    <li
+      *ngFor="let pageIndex of getPages()"
+      [className]="pageIndex === currentPage ? 'page-item active' : 'page-item'"
+      [attr.aria-current]="pageIndex === currentPage ? 'page' : ''"
+    >
+      <button class="page-link" (click)="setCurrentPage(pageIndex)">
+        {{ pageIndex }}
+      </button>
+    </li>
+  </ul>
+</nav>

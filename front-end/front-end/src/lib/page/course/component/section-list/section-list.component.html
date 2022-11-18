@@ -1,0 +1,9 @@
+<app-header-with-actions label='Sections'></app-header-with-actions>
+<app-add-section-form [courseId]='courseId' (addedNewSection)='onAddNewSection($event)'></app-add-section-form>
+
+<app-section-element
+  *ngFor='let section of sections'
+  [section]='section'
+  [isEditMode]='isEditMode'
+  (sectionDelete)='onSectionDelete($event)'
+></app-section-element>

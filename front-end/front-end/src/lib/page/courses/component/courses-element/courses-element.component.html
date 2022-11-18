@@ -1,0 +1,18 @@
+<div class='list-group-item bg-light d-flex align-items-center'>
+  <h4 class='m-0 text-muted fw-bolder'>{{course.title}}</h4>
+  <div class='col'></div>
+  <div class='btn-group'>
+    <button *ngIf='loggedUser.id === course.author.id' type='button' class='btn btn-sm btn-outline-danger' (click)='onCourseDelete()'>
+      Delete
+    </button>
+    <button type='button' routerLink='/profile/{{course?.author?.id}}' class='btn btn-sm btn-outline-primary'>
+      {{course.author.displayName}}
+    </button>
+    <button *ngIf='isParticipating' type='button' class='btn btn-sm btn-primary' routerLink='/course/{{course.id}}'>
+      View
+    </button>
+    <button *ngIf='!isParticipating' type='button' class='btn btn-sm btn-primary' (click)='sendParticipationRequest()'>
+      Participate
+    </button>
+  </div>
+</div>

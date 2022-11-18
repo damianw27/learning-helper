@@ -1,0 +1,10 @@
+<form class='mx-3 px-2' [formGroup]='sectionFrom' (submit)='onFormSubmit($event)'>
+  <div class="d-flex flex-row">
+    <div style='flex: 1'>
+      <input class="form-control" placeholder="Section title" [className]='getTitleClassName()' formControlName='title'>
+      <input type='hidden' formControlName='courseId'>
+      <input type='hidden' formControlName='cardinalIndex'>
+    </div>
+    <button type="submit" class="btn btn-primary ms-2">Create Section</button>
+  </div>
+</form>

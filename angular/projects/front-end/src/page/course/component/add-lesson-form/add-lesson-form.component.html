@@ -1,0 +1,14 @@
+<form [formGroup]="lessonForm" (submit)="onFormSubmit($event)">
+  <div class="d-flex flex-row">
+    <div style="flex: 1">
+      <input
+        class="form-control"
+        placeholder="Lesson title"
+        [className]="getTitleClassName()"
+        formControlName="title"
+      />
+      <input type="hidden" formControlName="sectionId" />
+    </div>
+    <button type="submit" class="btn btn-primary ms-2">Add lesson</button>
+  </div>
+</form>

@@ -1,0 +1,49 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create course</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <form
+    [formGroup]="courseForm"
+    autocomplete="off"
+    class="px-2"
+    (ngSubmit)="onSubmit(activeModal)"
+  >
+    <app-form-field
+      inputId="course-title"
+      inputName="title"
+      labelMessage="Title"
+      [validationErrors]="{}"
+    >
+      <input id="course-title" class="form-control" formControlName="title" />
+    </app-form-field>
+    <app-form-field
+      inputId="course-description"
+      inputName="description"
+      labelMessage="Description"
+      [validationErrors]="{}"
+    >
+      <app-rich-text-editor
+        [formControl]="getDescriptionFormControl()"
+      ></app-rich-text-editor>
+    </app-form-field>
+    <app-form-actions>
+      <div style="flex: 1"></div>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="activeModal.close('Close click')"
+        >
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </app-form-actions>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+<ng-template [ngIf]="isEditMode">
+  <div class="card mx-4 my-2">
+    <div class="card-header d-flex align-items-center justify-content-center">
+      <span>Section</span>
+      <div class="col"></div>
+      <button class="btn btn-sm btn-outline-danger" (click)="onDeleteSection()">
+        Delete
+      </button>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="sectionForm" (submit)="onFormSubmit()">
+        <app-form-field
+          inputId="section-{{ section.id }}-title"
+          inputName="section-{{ section.id }}-title"
+          labelMessage="Title"
+        >
+          <input
+            class="form-control form-control-sm"
+            formControlName="title"
+            id="section-{{ section.id }}-title"
+          />
+        </app-form-field>
+        <app-rich-text-editor
+          ngDefaultControl
+          [formControl]="getDescriptionFormControl()"
+        ></app-rich-text-editor>
+        <input type="hidden" formControlName="id" />
+        <input type="hidden" formControlName="courseId" />
+        <input type="hidden" formControlName="cardinalIndex" />
+        <app-form-actions>
+          <div style="flex: 1"></div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </app-form-actions>
+      </form>
+      <app-lesson-list
+        [section]="section"
+        [isEditMode]="isEditMode"
+      ></app-lesson-list>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="!isEditMode">
+  <div class="card mx-3 my-4">
+    <div class="card-header">{{ section.title }}</div>
+    <div class="card-body">
+      <div class="mb-3 px-2">
+        <quill-view-html
+          [content]="section.description.content"
+        ></quill-view-html>
+      </div>
+      <app-lesson-list
+        [section]="section"
+        [isEditMode]="isEditMode"
+      ></app-lesson-list>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,21 @@
+<div class="py-2">
+  <label class="form-label">Tags</label>
+
+  <form [formGroup]="addTagForm" (submit)="onNewTagSubmit($event)">
+    <input
+      class="form-control my-2"
+      formControlName="tag"
+      placeholder="Type tag"
+    />
+  </form>
+
+  <div class="form-control my-2">
+    <span
+      class="badge d-inline-flex align-items-center bg-secondary text-bg-dark rounded m-1 p-1 fw-bolder text-nowrap text-uppercase"
+      *ngFor="let tag of tags?.value ?? []"
+    >
+      <span>{{ tag }}</span>
+      <a class="ms-1" (click)="onRemoveTag(tag)">X</a>
+    </span>
+  </div>
+</div>

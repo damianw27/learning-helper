@@ -1,0 +1,59 @@
+<app-page-title></app-page-title>
+
+<app-page-small-body>
+  <form [formGroup]='loginForm' (submit)='onLoginFormSubmit($event)'>
+    <app-form-field
+      inputId='login'
+      labelMessage='Login'
+    >
+      <input
+        id='login'
+        type='text'
+        class='form-control'
+        formControlName='login'
+      >
+    </app-form-field>
+
+    <app-form-field
+      inputId='password'
+      labelMessage='Password'
+    >
+      <input
+        type='password'
+        class='form-control'
+        id='password'
+        formControlName='password'
+      >
+    </app-form-field>
+
+    <div *ngIf='credentialsAreInvalid | async' class="alert alert-danger" role="alert">
+      Provided bad credentials. Please check is everything provided correctly!
+    </div>
+
+    <div class='mb-3 form-check'>
+      <input
+        type='checkbox'
+        class='form-check-input'
+        id='rememberLogin'
+        formControlName='rememberLogin'
+      >
+      <label
+        class='form-check-label'
+        for='rememberLogin'
+      >
+        Remember my login.
+      </label>
+    </div>
+
+    <app-form-actions>
+      <a routerLink='/forget-password'>Forget password.</a>
+      <div style='flex: 1;'></div>
+      <div class='btn-group'>
+        <a routerLink='/register' class='btn btn-outline-primary'>Register</a>
+        <button type='submit' class='btn btn-primary'>Login</button>
+      </div>
+    </app-form-actions>
+  </form>
+</app-page-small-body>
+
+<app-page-footer></app-page-footer>

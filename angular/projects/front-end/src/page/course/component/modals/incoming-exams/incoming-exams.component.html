@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">Exams</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+        <th scope="col">Pass level</th>
+        <th scope="col">Attempts count</th>
+        <th scope="col">Questions count</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of exams">
+        <th scope="row">{{ exam.id }}</th>
+        <td>{{ exam.startDateTime }}</td>
+        <td>{{ exam.endDateTime }}</td>
+        <td>{{ exam.passLevel }}</td>
+        <td>{{ exam.attemptsCount }}</td>
+        <td>{{ exam.questionsCount }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-outline-danger"
+            (click)="onDeleteExamClick(exam.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

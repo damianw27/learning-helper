@@ -1,0 +1,19 @@
+<app-page-title></app-page-title>
+
+<app-page-body>
+  <ng-template [ngIf]='examInstance.score >= examDefinition.passLevel'>
+    <ngb-alert type='success'>
+      <h1>Congratulation!</h1>
+      <p>You have passed the exam with result: {{examInstance.score * examDefinition.questionsCount}}/{{examDefinition.questionsCount}}</p>
+    </ngb-alert>
+  </ng-template>
+  <ng-template [ngIf]='examInstance.score < examDefinition.passLevel'>
+    <ngb-alert type='danger'>
+      <h1>Oh noo!</h1>
+      <p>You have failed the exam with result: {{examInstance.score * examDefinition.questionsCount}}/{{examDefinition.questionsCount}}</p>
+    </ngb-alert>
+  </ng-template>
+  <a routerLink='/courses' class='btn btn-link w-100'>Go to courses</a>
+</app-page-body>
+
+<app-page-footer></app-page-footer>

@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create exam</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]='examDefinitionForm' class='px-2' (ngSubmit)='onSubmit($event)'>
+    <app-form-field
+      inputName='startDateTime'
+      labelMessage='Start time'
+      [validationErrors]='{}'
+    >
+      <app-date-time-picker ngDefaultControl [formControl]='startDateTimeControl'></app-date-time-picker>
+    </app-form-field>
+
+    <app-form-field
+      inputName='endDateTime'
+      labelMessage='End time'
+      [validationErrors]='{}'
+    >
+      <app-date-time-picker ngDefaultControl [formControl]='endDateTimeControl'></app-date-time-picker>
+    </app-form-field>
+
+    <app-form-field
+      inputId='passLevel'
+      inputName='passLevel'
+      labelMessage='Pass level'
+      [validationErrors]='{}'
+    >
+      <input type="range" class="form-range" min='0.01' max='1' step='0.01' id="passLevel" formControlName='passLevel'>
+      <div class="form-text">Value: {{examDefinitionForm.controls['passLevel'].value}}</div>
+    </app-form-field>
+
+    <app-form-field
+      inputId='attemptsCount'
+      inputName='attemptsCount'
+      labelMessage='Attempts count'
+      [validationErrors]='{}'
+    >
+      <input type="range" class="form-range" min='1' max='10' id="attemptsCount" formControlName='attemptsCount'>
+      <div class="form-text">Value: {{examDefinitionForm.controls['attemptsCount'].value}}</div>
+    </app-form-field>
+
+    <app-form-field
+      inputId='questionsCount'
+      inputName='questionsCount'
+      labelMessage='Questions count'
+      [validationErrors]='{}'
+    >
+      <input type="range" class="form-range" min='1' max='10' id="questionsCount" formControlName='questionsCount'>
+      <div class="form-text">Value: {{examDefinitionForm.controls['questionsCount'].value}}</div>
+    </app-form-field>
+
+    <app-form-actions>
+      <div style='flex: 1'></div>
+      <div class='btn-group'>
+        <button type="button" class="btn btn-outline-primary" (click)="activeModal.close('Close click')">Close</button>
+        <button type='submit' class='btn btn-primary'>Create</button>
+      </div>
+    </app-form-actions>
+  </form>
+</div>

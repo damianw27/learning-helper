@@ -1,0 +1,9 @@
+<div class='list-group py-2'>
+  <app-courses-element *ngFor='let course of (courses$ | async)' [course]='course'></app-courses-element>
+
+  <app-pagination
+    [currentPage]='currentPage$ | async'
+    [pagesCount]='pagesCount$ | async'
+    (pageChange)='onCurrentPageChange($event)'
+  ></app-pagination>
+</div>

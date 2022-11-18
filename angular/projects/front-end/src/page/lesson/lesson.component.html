@@ -1,0 +1,79 @@
+<app-page-title></app-page-title>
+
+<app-page-body>
+  <app-page-header>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb m-0">
+        <li class="breadcrumb-item"><a routerLink="/courses">Courses</a></li>
+        <li class="breadcrumb-item">
+          <a routerLink="/course/{{ course?.id }}">{{ course?.title }}</a>
+        </li>
+        <li class="breadcrumb-item">{{ lesson?.section?.title }}</li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ lesson?.title }}
+        </li>
+      </ol>
+    </nav>
+  </app-page-header>
+
+  <ng-template [ngIf]="isEditMode">
+    <form [formGroup]="lessonForm" (submit)="onSubmit($event)">
+      <app-form-field inputId="lessonTitle" labelMessage="Title">
+        <input class="form-control" formControlName="title" id="lessonTitle" />
+      </app-form-field>
+
+      <app-header-with-actions label="Contents">
+        <button class="btn btn-primary" (click)="addNewContentFormGroup()">
+          Add Content
+        </button>
+      </app-header-with-actions>
+
+      <ng-container formArrayName="lessonContents">
+        <form
+          class="card my-2"
+          *ngFor="
+            let lessonContentGroup of lessonContentsGroups;
+            let lessonContentGroupIndex = index
+          "
+          [formGroup]="lessonContentGroup"
+        >
+          <div class="card-header d-flex">
+            <div style="flex: 1"></div>
+            <button class="btn btn-outline-danger">Delete</button>
+          </div>
+          <div class="card-body">
+            <app-form-field labelMessage="Select learning style">
+              <select class="form-control" formControlName="learningStyle">
+                <option value="AUDITORY">Auditory</option>
+                <option value="VISUAL">Visual</option>
+                <option value="KINESTHETIC">Kinesthetic</option>
+              </select>
+            </app-form-field>
+
+            <app-form-field labelMessage="Content">
+              <app-rich-text-editor
+                ngDefaultControl
+                [formControl]="getContentFromFormGroup(lessonContentGroup)"
+              ></app-rich-text-editor>
+            </app-form-field>
+          </div>
+        </form>
+      </ng-container>
+
+      <app-form-actions>
+        <div style="flex: 1"></div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </app-form-actions>
+    </form>
+  </ng-template>
+
+  <ng-template [ngIf]="!isEditMode">
+    <h1>{{ lesson.title }}</h1>
+
+    <div *ngFor="let content of contents" class="my-2">
+      <quill-view-html [content]="content.content.content"></quill-view-html>
+    </div>
+  </ng-template>
+</app-page-body>
+
+<app-page-footer></app-page-footer>
