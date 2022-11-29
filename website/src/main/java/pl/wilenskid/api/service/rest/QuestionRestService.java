@@ -148,7 +148,7 @@ public class QuestionRestService {
   }
 
   private void updateQuestionAnswer(QuestionAnswer questionAnswer,
-                                              QuestionAnswerUpdateBean questionAnswerUpdateBean) {
+                                    QuestionAnswerUpdateBean questionAnswerUpdateBean) {
     UploadedFile content = filesService.replace(
       questionAnswer.getContent(),
       "question_answer_content.html",

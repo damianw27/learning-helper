@@ -1,8 +1,8 @@
 package pl.wilenskid.api.service;
 
 import pl.wilenskid.api.model.Post;
-import pl.wilenskid.api.service.repository.PostRepository;
 import pl.wilenskid.api.model.Tag;
+import pl.wilenskid.api.service.repository.PostRepository;
 import pl.wilenskid.api.service.repository.TagRepository;
 
 import javax.inject.Inject;

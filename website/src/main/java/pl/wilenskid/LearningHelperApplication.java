@@ -9,9 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 public class LearningHelperApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LearningHelperApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(LearningHelperApplication.class, args);
+  }
 
   @Bean
   public PasswordEncoder passwordEncoder() {

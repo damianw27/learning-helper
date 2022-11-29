@@ -8,6 +8,6 @@ import javax.inject.Named;
 @Named
 public class PropertiesService {
 
-    private final String location = "upload-dir";
+  private final String location = "upload-dir";
 
 }

@@ -1,11 +1,11 @@
 package pl.wilenskid.api.service.validator;
 
-import pl.wilenskid.common.generics.service.ValidatorService;
-import pl.wilenskid.common.model.ValidationErrors;
 import pl.wilenskid.api.model.User;
-import pl.wilenskid.api.service.repository.UserRepository;
 import pl.wilenskid.api.model.bean.UserCreateBean;
 import pl.wilenskid.api.model.bean.UserUpdateBean;
+import pl.wilenskid.api.service.repository.UserRepository;
+import pl.wilenskid.common.generics.service.ValidatorService;
+import pl.wilenskid.common.model.ValidationErrors;
 
 import javax.inject.Inject;
 import javax.inject.Named;

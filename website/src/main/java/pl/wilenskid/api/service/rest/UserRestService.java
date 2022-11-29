@@ -4,18 +4,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import pl.wilenskid.api.assembly.UserAssembly;
+import pl.wilenskid.api.enums.UserRole;
+import pl.wilenskid.api.model.User;
+import pl.wilenskid.api.model.bean.UserAuthBean;
+import pl.wilenskid.api.model.bean.UserBean;
+import pl.wilenskid.api.model.bean.UserCreateBean;
 import pl.wilenskid.api.model.bean.UserUpdateBean;
+import pl.wilenskid.api.service.repository.UserRepository;
+import pl.wilenskid.api.service.validator.UserValidatorService;
 import pl.wilenskid.common.annotation.RestService;
 import pl.wilenskid.common.exception.ValidationErrorException;
 import pl.wilenskid.common.model.ValidationErrors;
-import pl.wilenskid.api.model.bean.UserAuthBean;
-import pl.wilenskid.api.model.User;
-import pl.wilenskid.api.service.repository.UserRepository;
-import pl.wilenskid.api.model.bean.UserBean;
-import pl.wilenskid.api.model.bean.UserCreateBean;
-import pl.wilenskid.api.enums.UserRole;
-import pl.wilenskid.api.assembly.UserAssembly;
-import pl.wilenskid.api.service.validator.UserValidatorService;
 
 import javax.inject.Inject;
 import java.security.Principal;
@@ -69,7 +69,7 @@ public class UserRestService {
   }
 
   @ResponseBody
-  @PutMapping("/update")
+  @PostMapping("/update")
   public ResponseEntity<UserBean> create(@RequestBody UserUpdateBean userUpdateBean) {
     return userRepository
       .findById(userUpdateBean.getId())

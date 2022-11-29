@@ -3,7 +3,6 @@ package pl.wilenskid.api.assembly;
 import lombok.extern.slf4j.Slf4j;
 import pl.wilenskid.api.model.UploadedFile;
 import pl.wilenskid.api.model.bean.UploadedFileBean;
-import pl.wilenskid.api.service.FilesService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,13 +11,10 @@ import javax.inject.Named;
 @Named
 public class UploadedFileAssembly {
 
-  private final FilesService filesService;
   private final UserAssembly userAssembly;
 
   @Inject
-  public UploadedFileAssembly(FilesService filesService,
-                              UserAssembly userAssembly) {
-    this.filesService = filesService;
+  public UploadedFileAssembly(UserAssembly userAssembly) {
     this.userAssembly = userAssembly;
   }
 
@@ -29,8 +25,7 @@ public class UploadedFileAssembly {
     uploadedFileBean.setType(uploadedFile.getType());
     uploadedFileBean.setUrl(uploadedFile.getUrl());
     uploadedFileBean.setSize(uploadedFile.getSize());
-//    uploadedFileBean.setOwner(userAssemblyService.toBean(uploadedFile.getOwner()));
-    uploadedFileBean.setContent(filesService.download(uploadedFile.getName()));
+    uploadedFileBean.setOwner(userAssembly.toBean(uploadedFile.getOwner()));
     return uploadedFileBean;
   }
 

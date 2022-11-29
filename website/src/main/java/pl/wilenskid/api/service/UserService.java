@@ -4,9 +4,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import pl.wilenskid.api.enums.UserRole;
 import pl.wilenskid.api.model.User;
 import pl.wilenskid.api.service.repository.UserRepository;
-import pl.wilenskid.api.enums.UserRole;
 
 import javax.inject.Inject;
 import javax.inject.Named;

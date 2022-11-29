@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface TagRepository extends CrudRepository<Tag, Long> {
   Optional<Tag> findByToken(String token);
+
   Optional<Tag> findByTokenUpper(String tokenUpper);
 }

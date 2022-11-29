@@ -6,18 +6,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.wilenskid.api.model.Post;
 import pl.wilenskid.api.model.UploadedFile;
+import pl.wilenskid.api.model.User;
 import pl.wilenskid.api.model.bean.PostCreateBean;
 import pl.wilenskid.api.model.bean.PostUpdateBean;
 import pl.wilenskid.api.service.FilesService;
+import pl.wilenskid.api.service.UserService;
 import pl.wilenskid.api.service.repository.PostRepository;
 import pl.wilenskid.common.annotation.RestService;
 import pl.wilenskid.common.model.StringMultipartFile;
-import pl.wilenskid.api.model.User;
-import pl.wilenskid.api.service.UserService;
 
 import javax.inject.Inject;
 import javax.ws.rs.QueryParam;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -106,7 +105,7 @@ public class PostRestService {
 
   @ResponseBody
   @PostMapping("/create")
-  public ResponseEntity<Post> create(@RequestBody PostCreateBean postCreateBean) throws IOException {
+  public ResponseEntity<Post> create(@RequestBody PostCreateBean postCreateBean) {
     MultipartFile description = new StringMultipartFile(
       POST_DESCRIPTION_FILENAME,
       postCreateBean.getDescription()

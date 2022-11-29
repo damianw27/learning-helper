@@ -1,8 +1,8 @@
 package pl.wilenskid.api.assembly;
 
-import pl.wilenskid.api.service.TimeService;
 import pl.wilenskid.api.model.User;
 import pl.wilenskid.api.model.bean.UserBean;
+import pl.wilenskid.api.service.TimeService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,6 +18,10 @@ public class UserAssembly {
   }
 
   public UserBean toBean(User user) {
+    if (user == null) {
+      return null;
+    }
+
     String created = timeService
       .dateToString(user.getCreated(), false)
       .orElse(null);

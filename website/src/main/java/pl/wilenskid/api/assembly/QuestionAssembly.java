@@ -2,7 +2,10 @@ package pl.wilenskid.api.assembly;
 
 import pl.wilenskid.api.model.Question;
 import pl.wilenskid.api.model.QuestionAnswer;
-import pl.wilenskid.api.model.bean.*;
+import pl.wilenskid.api.model.bean.QuestionAnswerBean;
+import pl.wilenskid.api.model.bean.QuestionAnswerCreateBean;
+import pl.wilenskid.api.model.bean.QuestionAnswerUpdateBean;
+import pl.wilenskid.api.model.bean.QuestionBean;
 import pl.wilenskid.api.service.FilesService;
 
 import javax.inject.Inject;

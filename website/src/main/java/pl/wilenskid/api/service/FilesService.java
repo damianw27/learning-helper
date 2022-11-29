@@ -24,11 +24,14 @@ import java.util.UUID;
 @Slf4j
 public class FilesService {
 
+  private final UserService userService;
   private final Path uploadsDirectory;
   private final UploadedFileRepository uploadedFileRepository;
 
-  public FilesService(@Value("${application.uploads-dir}") String uploadsDirectoryPath,
+  public FilesService(UserService userService,
+                      @Value("${application.uploads-dir}") String uploadsDirectoryPath,
                       UploadedFileRepository uploadedFileRepository) {
+    this.userService = userService;
     this.uploadsDirectory = Paths.get(uploadsDirectoryPath);
     this.uploadedFileRepository = uploadedFileRepository;
     this.verifyUploadsEnvironment();
@@ -46,6 +49,7 @@ public class FilesService {
     uploadedFile.setType(file.getContentType());
     uploadedFile.setUrl(String.format("/api/file/%s", uploadedFile.getName()));
     uploadedFile.setSize(file.getSize());
+    uploadedFile.setOwner(userService.getLoggedInUser());
 
     upload(file, uploadedFile.getName());
 

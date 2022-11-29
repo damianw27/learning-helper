@@ -1,0 +1,28 @@
+canvas {
+  cursor: default;
+  outline: none;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body {
+  background-color: transparent;
+}
+
+.superdev {
+  display: none;
+}
+
+#embed-html {
+  text-align: center;
+}
+
+#embed-html > table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px !important;
+  height: 700px !important;
+  margin: auto;
+  padding: 0;
+}

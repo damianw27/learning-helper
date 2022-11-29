@@ -9,18 +9,17 @@ import org.springframework.web.multipart.MultipartFile;
 import pl.wilenskid.api.model.Post;
 import pl.wilenskid.api.model.SubPost;
 import pl.wilenskid.api.model.UploadedFile;
+import pl.wilenskid.api.model.User;
 import pl.wilenskid.api.model.bean.SubPostCreateBean;
 import pl.wilenskid.api.model.bean.SubPostUpdateBean;
 import pl.wilenskid.api.service.FilesService;
+import pl.wilenskid.api.service.UserService;
 import pl.wilenskid.api.service.repository.PostRepository;
 import pl.wilenskid.api.service.repository.SubPostRepository;
 import pl.wilenskid.common.annotation.RestService;
 import pl.wilenskid.common.model.StringMultipartFile;
-import pl.wilenskid.api.model.User;
-import pl.wilenskid.api.service.UserService;
 
 import javax.inject.Inject;
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
@@ -75,7 +74,7 @@ public class SubPostRestService {
 
   @ResponseBody
   @PostMapping("/create")
-  public ResponseEntity<SubPost> create(@RequestBody SubPostCreateBean subPostCreateBean) throws IOException {
+  public ResponseEntity<SubPost> create(@RequestBody SubPostCreateBean subPostCreateBean) {
     Post post = postRepository
       .findById(subPostCreateBean.getPostId())
       .orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "Post with provided ID not found."));
