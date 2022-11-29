@@ -1,0 +1,29 @@
+.posts-list-element {
+  position: relative;
+  background-color: rgba(var(--bs-light-rgb), 0.5);
+  overflow: hidden;
+  border-radius: var(--bs-border-radius);
+  cursor: pointer;
+}
+
+.posts-list-element::before {
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 512px;
+  height: 512px;
+  background: radial-gradient(circle closest-side, rgb(var(--bs-light-rgb)), transparent);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s linear;
+  z-index: -1;
+  opacity: 0;
+}
+
+.posts-list-element:hover::before {
+  opacity: 1;
+}
+
+.fs-extra-small {
+  font-size: 0.75rem !important;
+}

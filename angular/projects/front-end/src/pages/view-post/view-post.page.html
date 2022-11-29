@@ -1,1 +1,31 @@
-<p>view-post works!</p>
+<div #contributorUserView class="px-0 px-sm-3 px-md-5 p-transition">
+  contributor
+  <form>
+    <div class="mb-3">
+      <label class="form-label" for="title">Title</label>
+      <input class="form-control" id="title">
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="shortDescription">Short Description</label>
+      <textarea class="form-control" id="shortDescription"></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="description">Full Description</label>
+      <app-rich-text-editor id="description"></app-rich-text-editor>
+    </div>
+
+  </form>
+
+</div>
+<div #normalUserView class="px-0 px-sm-3 px-md-5 p-transition">
+  normal
+  <h1>Title</h1>
+
+  <div class="bg-light bg-opacity-75 border rounded mb-3">
+    full description
+  </div>
+
+  <div class="bg-light bg-opacity-75 border rounded mb-3">
+    sub-posts
+  </div>
+</div>

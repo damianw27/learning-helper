@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '~quill/dist/quill.snow.css';
+
+.ql-toolbar.ql-snow {
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+}
+
+.ql-container.ql-snow {
+  border: none;
+}

@@ -25,7 +25,7 @@ const toolbarOptions = {
 @Component({
   selector: 'app-rich-text-editor',
   templateUrl: './rich-text-editor.component.html',
-  styleUrls: ['./rich-text-editor.component.scss'],
+  styleUrls: ['./rich-text-editor.component.css'],
 })
 export class RichTextEditor {
   @Input() formControl: FormControl = new FormControl('');

@@ -53,7 +53,7 @@ public class FileRestService {
   }
 
   @ResponseBody
-  @PostMapping("/upload")
+  @PutMapping("/upload")
   public ResponseEntity<UploadedFileBean> upload(@RequestParam("file") MultipartFile file) throws IOException {
     if (file == null || file.isEmpty()) {
       return ResponseEntity.badRequest().build();

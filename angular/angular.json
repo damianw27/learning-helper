@@ -24,18 +24,6 @@
           },
           "defaultConfiguration": "production"
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "typescript:build:production"
-            },
-            "development": {
-              "browserTarget": "typescript:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

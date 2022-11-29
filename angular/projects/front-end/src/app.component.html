@@ -1,0 +1,27 @@
+<div id="app-container">
+  <div id="app-navbar-container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-opacity-50 px-2 py-1">
+      <a class="navbar-brand" routerLink="/home">LH</a>
+      <div class="flex-fill"></div>
+      <button
+        routerLink="/profile"
+        class="btn btn-sm btn-link navbar-brand me-0 d-flex align-items-center justify-content-center flex-column flex-sm-row"
+      >
+        <span class="d-none d-sm-block">Damian Wileński</span>
+        <img
+          src="https://wilenskid.pl/assets/avatar.jpg"
+          alt="avatar"
+          id="app-navbar-avatar"
+          class="ms-sm-3"
+        >
+      </button>
+    </nav>
+  </div>
+
+  <div id="app-content-container" class="text-light">
+    <router-outlet></router-outlet>
+    <footer class="pt-2 mt-5 border-top border-light">
+      <p class="text-center">© 2022 Damian Wileński</p>
+    </footer>
+  </div>
+</div>

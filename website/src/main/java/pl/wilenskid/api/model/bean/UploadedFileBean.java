@@ -12,5 +12,5 @@ public class UploadedFileBean {
   private String type;
   private String url;
   private Long size;
-  private Resource content;
+  private transient Resource content;
 }

@@ -1,0 +1,3 @@
+.p-transition {
+  transition: padding-right 1s linear, padding-left 1s linear, padding-bottom 1s linear, padding-top 1s linear;
+}

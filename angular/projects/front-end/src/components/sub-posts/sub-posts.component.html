@@ -1,0 +1,32 @@
+<ng-template [ngIf]="isEditMode">
+  <div
+    cdkDropList
+    class="list-group my-2"
+    (cdkDropListDropped)="dropLessonItem($event)"
+  >
+    <div class="list-group-item">
+      <app-add-lesson-form
+        [sectionId]="section!.id"
+        (addedNewLesson)="onNewLessonAdd($event)"
+      ></app-add-lesson-form>
+    </div>
+
+    <div cdkDrag *ngFor="let lesson of lessons">
+      <app-lesson-element
+        [lesson]="lesson"
+        [isEditMode]="isEditMode"
+        (deleteLessonClick)="onLessonDelete($event)"
+      ></app-lesson-element>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="!isEditMode">
+  <div class="list-group">
+    <app-lesson-element
+      *ngFor="let lesson of lessons"
+      [lesson]="lesson"
+      [isEditMode]="isEditMode"
+    ></app-lesson-element>
+  </div>
+</ng-template>

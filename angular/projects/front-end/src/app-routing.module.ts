@@ -6,8 +6,22 @@ import { RegisterPage } from './pages/common-pages/register/register.page';
 import { ForgetPasswordPage } from './pages/common-pages/forget-password/forget-password.page';
 import { ChangePasswordPage } from './pages/common-pages/change-password/change-password.page';
 import { ServerIssuePage } from './pages/error-pages/server-issue/server-issue.page';
+import {ViewPostsPage} from "./pages/view-posts/view-posts.page";
+import {ViewPostPage} from "./pages/view-post/view-post.page";
+import {PagesModule} from "./pages/pages.module";
+import {ComponentsModule} from "./components/components.module";
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/posts',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    redirectTo: '/posts',
+    pathMatch: 'full',
+  },
   {
     path: 'login',
     component: LoginPage,
@@ -27,6 +41,14 @@ const routes: Routes = [
   {
     path: 'error',
     component: ServerIssuePage,
+  },
+  {
+    path: 'posts',
+    component: ViewPostsPage,
+  },
+  {
+    path: 'view-post/:id',
+    component: ViewPostPage,
   },
   {
     path: '**',
