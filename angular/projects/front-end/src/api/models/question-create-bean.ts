@@ -1,4 +1,4 @@
-import {QuestionAnswerCreateBean} from "./question-answer-create-bean";
+import { QuestionAnswerCreateBean } from './question-answer-create-bean';
 
 export interface QuestionCreateBean {
   readonly subPageId: number;

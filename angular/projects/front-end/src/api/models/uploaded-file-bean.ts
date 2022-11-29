@@ -1,16 +1,10 @@
-package pl.wilenskid.api.model.bean;
+import { UserBean } from './user-bean';
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import lombok.Data;
-import org.springframework.core.io.Resource;
-
-@Data
-@JsonAutoDetect
-public class UploadedFileBean {
-  private String name;
-  private String originalName;
-  private String type;
-  private String url;
-  private Long size;
-  private Resource content;
+export interface UploadedFileBean {
+  readonly name: string;
+  readonly originalName: string;
+  readonly type: string;
+  readonly url: string;
+  readonly size: number;
+  readonly owner: UserBean;
 }

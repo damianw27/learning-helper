@@ -1,17 +1,11 @@
-package pl.wilenskid.api.model.bean;
+import { UserRole } from './enums/user-role';
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import lombok.Data;
-import pl.wilenskid.api.enums.UserRole;
-
-@Data
-@JsonAutoDetect
-public class UserBean {
-  private Long id;
-  private String name;
-  private String displayName;
-  private String email;
-  private UserRole userRole;
-  private String created;
-  private String updated;
+export interface UserBean {
+  readonly id: number;
+  readonly name: string;
+  readonly displayName: string;
+  readonly email: string;
+  readonly userRole: UserRole;
+  readonly created: string;
+  readonly updated: string;
 }
