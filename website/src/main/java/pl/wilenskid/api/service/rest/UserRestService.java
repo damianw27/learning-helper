@@ -70,7 +70,7 @@ public class UserRestService {
 
   @ResponseBody
   @PostMapping("/update")
-  public ResponseEntity<UserBean> create(@RequestBody UserUpdateBean userUpdateBean) {
+  public ResponseEntity<UserBean> update(@RequestBody UserUpdateBean userUpdateBean) {
     return userRepository
       .findById(userUpdateBean.getId())
       .map(user -> updateUser(user, userUpdateBean))

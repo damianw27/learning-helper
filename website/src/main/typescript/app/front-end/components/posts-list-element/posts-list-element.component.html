@@ -1,0 +1,15 @@
+<div
+  #postsListElement class="posts-list-element shadow-sm mb-2"
+  (mousemove)="onMouseMove($event, postsListElement)"
+>
+  <a
+    class="btn btn-light bg-transparent d-flex flex-row px-2 text-dark align-items-center w-100"
+    [routerLink]="['/view-post/' + post?.id]"
+  >
+    <div
+      class="d-flex align-items-center text-truncate text-uppercase h5"
+    >
+      {{ post?.title }}
+    </div>
+  </a>
+</div>

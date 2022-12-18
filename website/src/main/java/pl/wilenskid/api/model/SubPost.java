@@ -1,21 +1,18 @@
 package pl.wilenskid.api.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.Calendar;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity(name = "SUB_POSTS")
-@EqualsAndHashCode(callSuper = true)
 public class SubPost extends AbstractPersistable<Long> {
 
   private String title;
@@ -26,10 +23,8 @@ public class SubPost extends AbstractPersistable<Long> {
   @OneToOne
   private UploadedFile content;
 
-  @OneToMany
-  private Set<User> contributors;
-
   @ManyToOne
+  @JoinColumn(name = "POST_ID", nullable = false)
   private Post post;
 
   private Calendar created;

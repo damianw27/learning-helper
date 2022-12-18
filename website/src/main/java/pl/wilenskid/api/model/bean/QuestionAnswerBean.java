@@ -8,6 +8,6 @@ import org.springframework.core.io.Resource;
 @JsonAutoDetect
 public class QuestionAnswerBean {
   private Long id;
-  private Resource content;
+  private FileBean content;
   private Boolean isValid;
 }

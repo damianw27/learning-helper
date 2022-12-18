@@ -23,7 +23,7 @@
             "polyfills": "src/main/typescript/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "preserveSymlinks": true,
+            "preserveSymlinks": false,
             "assets": [
               "src/main/typescript/favicon.ico",
               "src/main/typescript/assets"
@@ -101,8 +101,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/main/typescript/**/*.ts",
+              "src/main/typescript/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

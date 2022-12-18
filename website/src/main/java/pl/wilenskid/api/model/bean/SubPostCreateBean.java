@@ -8,6 +8,4 @@ import lombok.Data;
 public class SubPostCreateBean {
   private Long postId;
   private String title;
-  private String description;
-  private String content;
 }

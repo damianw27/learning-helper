@@ -1,0 +1,33 @@
+<app-form-container>
+  <h1>Login</h1>
+  <form [formGroup]="loginFromGroup" (ngSubmit)="login()">
+    <div class="mb-3">
+      <label for="username" class="form-label">Login</label>
+      <input formControlName="username" class="form-control" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="password">
+    </div>
+
+    <div class="mb-3 form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="rememberLogin"
+        formControlName="rememberLogin"
+      />
+      <label class="form-check-label" for="rememberLogin">Remember my login</label>
+    </div>
+
+    <div class="alert alert-danger" role="alert" [hidden]="">
+      Provided bad credentials. Please check is everything provided correctly!
+    </div>
+
+    <div class="btn-group d-flex mt-3">
+      <a routerLink="/forget-password" class="btn btn-light">Forget password</a>
+      <a routerLink="/register" class="btn btn-light">Register</a>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</app-form-container>

@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /target
+/.angular
 
 # Node
 /node
@@ -18,6 +19,7 @@ yarn-error.log
 .project
 .classpath
 .c9/
+/.vscode
 *.launch
 .settings/
 *.sublime-workspace
@@ -38,7 +40,7 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-uploads
+/uploads
 
 # System files
 .DS_Store

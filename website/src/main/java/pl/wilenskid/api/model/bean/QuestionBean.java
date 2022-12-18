@@ -10,6 +10,7 @@ import java.util.List;
 @JsonAutoDetect
 public class QuestionBean {
   private Long id;
-  private Resource content;
+  private Long subPostId;
+  private FileBean content;
   private List<QuestionAnswerBean> answers;
 }

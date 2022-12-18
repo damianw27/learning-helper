@@ -1,6 +1,5 @@
 package pl.wilenskid.api.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -12,7 +11,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity(name = "POSTS")
-@EqualsAndHashCode(callSuper = true)
 public class Post extends AbstractPersistable<Long> {
 
   private String title;
@@ -20,10 +18,15 @@ public class Post extends AbstractPersistable<Long> {
   @OneToOne
   private UploadedFile description;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @ManyToMany
+  @JoinTable(
+    name = "CONTRIBUTORS",
+    joinColumns = @JoinColumn(name = "POST_ID"),
+    inverseJoinColumns = @JoinColumn(name = "USER_ID")
+  )
   private Set<User> contributors;
 
-  @OneToMany(cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "post")
   private Set<SubPost> subPosts;
 
   @ManyToMany()

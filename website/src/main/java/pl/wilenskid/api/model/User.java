@@ -1,6 +1,5 @@
 package pl.wilenskid.api.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -9,14 +8,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import pl.wilenskid.api.enums.UserRole;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity(name = "USERS")
-@EqualsAndHashCode(callSuper = true)
 public class User extends AbstractPersistable<Long> implements UserDetails {
 
   private String name;
@@ -34,6 +34,9 @@ public class User extends AbstractPersistable<Long> implements UserDetails {
   private Calendar updated;
 
   private Calendar suspendExpiration;
+
+  @ManyToMany
+  private Set<Post> posts;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

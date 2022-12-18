@@ -1,0 +1,23 @@
+<ng-template [ngIf]="isEditMode">
+  <div class="list-group-item d-flex align-items-center justify-content-center">
+    <a routerLink="/lesson/{{ subPostBean?.id }}" class="list-group-item-action">
+      {{ subPostBean?.title }}
+    </a>
+    <div class="flex-fill"></div>
+    <button
+      type="button"
+      class="btn btn-sm btn-link"
+      (click)="onDeleteClick(subPostBean?.id ?? -1)"
+    >
+      Delete
+    </button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="!isEditMode">
+  <div class="list-group-item">
+    <a routerLink="/view-sub-post/{{ subPostBean?.id }}" class="list-group-item-action">
+      {{ subPostBean?.title }}
+    </a>
+  </div>
+</ng-template>

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+#app-container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0.5rem 0;
+  background: #f8dfb1 url("assets/wallpaper.png") no-repeat top;
+  background-clip: border-box;
+  background-size: 100%;
+}
+
+#app-navbar-container {
+  width: 95%;
+  backdrop-filter: blur(10px);
+  border-radius: var(--bs-border-radius);
+  border: 0.05rem solid rgb(var(--bs-dark-rgb));
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  margin: 0.5rem auto;
+  overflow: hidden;
+}
+
+#app-navbar-avatar {
+  width: 48px;
+  border: 2px solid #ffffff;
+  border-radius: 100%;
+}
+
+#app-content-container {
+  width: 95%;
+  padding: 1.0rem 0.25rem;
+  background-color: rgba(var(--bs-dark-rgb), 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: var(--bs-border-radius);
+  border: 0.05rem solid #949494;
+  box-shadow: 0 0.125rem 0.25rem #00000013;
+  margin: 0.5rem auto;
+}
+
+.small-text {
+  font-size: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  #app-navbar-container {
+    width: 600px;
+  }
+
+  #app-content-container {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #app-navbar-container {
+    width: 768px;
+  }
+
+  #app-content-container {
+    width: 768px;
+  }
+}

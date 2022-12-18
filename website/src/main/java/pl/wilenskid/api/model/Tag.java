@@ -1,6 +1,5 @@
 package pl.wilenskid.api.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -14,7 +13,6 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity(name = "TAGS")
-@EqualsAndHashCode(callSuper = true)
 public class Tag extends AbstractPersistable<Long> {
   private String token;
 

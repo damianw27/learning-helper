@@ -2,7 +2,6 @@ package pl.wilenskid.api.model.bean;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Data;
-import org.springframework.core.io.Resource;
 
 import java.util.List;
 
@@ -10,10 +9,10 @@ import java.util.List;
 @JsonAutoDetect
 public class SubPostBean {
   private Long id;
+  private Long postId;
   private String title;
-  private Resource description;
-  private Resource content;
-  private List<UserBean> contributors;
+  private FileBean description;
+  private FileBean content;
   private String created;
   private String updated;
 }

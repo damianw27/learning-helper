@@ -1,6 +1,5 @@
 package pl.wilenskid.api.model;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
@@ -12,7 +11,6 @@ import javax.persistence.OneToOne;
 @Getter
 @Setter
 @Entity(name = "QUESTION_ANSWERS")
-@EqualsAndHashCode(callSuper = true)
 public class QuestionAnswer extends AbstractPersistable<Long> {
 
   @OneToOne

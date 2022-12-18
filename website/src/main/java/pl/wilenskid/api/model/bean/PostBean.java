@@ -11,7 +11,7 @@ import java.util.List;
 public class PostBean {
   private Long id;
   private String title;
-  private Resource description;
+  private FileBean description;
   private List<UserBean> contributors;
   private List<SubPostBean> subPosts;
   private List<TagBean> tags;

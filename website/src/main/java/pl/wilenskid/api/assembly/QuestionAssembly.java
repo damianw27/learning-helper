@@ -6,7 +6,6 @@ import pl.wilenskid.api.model.bean.QuestionAnswerBean;
 import pl.wilenskid.api.model.bean.QuestionAnswerCreateBean;
 import pl.wilenskid.api.model.bean.QuestionAnswerUpdateBean;
 import pl.wilenskid.api.model.bean.QuestionBean;
-import pl.wilenskid.api.service.FilesService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -16,11 +15,11 @@ import java.util.stream.Collectors;
 @Named
 public class QuestionAssembly {
 
-  private final FilesService filesService;
+  private final FileAssembly fileAssembly;
 
   @Inject
-  public QuestionAssembly(FilesService filesService) {
-    this.filesService = filesService;
+  public QuestionAssembly(FileAssembly fileAssembly) {
+    this.fileAssembly = fileAssembly;
   }
 
   public List<QuestionBean> toBeans(List<Question> questions) {
@@ -39,7 +38,8 @@ public class QuestionAssembly {
 
     QuestionBean questionBean = new QuestionBean();
     questionBean.setId(question.getId());
-    questionBean.setContent(filesService.download(question.getContent().getName()));
+    questionBean.setSubPostId(question.getSubPost().getId());
+    questionBean.setContent(fileAssembly.toBean(question.getContent()));
     questionBean.setAnswers(questionAnswers);
     return questionBean;
   }
@@ -47,7 +47,7 @@ public class QuestionAssembly {
   public QuestionAnswerBean toBean(QuestionAnswer questionAnswer) {
     QuestionAnswerBean questionAnswerBean = new QuestionAnswerBean();
     questionAnswerBean.setId(questionAnswerBean.getId());
-    questionAnswerBean.setContent(filesService.download(questionAnswer.getContent().getName()));
+    questionAnswerBean.setContent(fileAssembly.toBean(questionAnswer.getContent()));
     questionAnswerBean.setIsValid(questionAnswer.getIsValid());
     return questionAnswerBean;
   }

@@ -76,7 +76,7 @@ public class FileRestService {
     return ResponseEntity.ok(uploadedFileAssembly.toBean(uploadedFile));
   }
 
-  public ResponseEntity<Resource> buildDownloadResponse(UploadedFile uploadedFile) {
+  private ResponseEntity<Resource> buildDownloadResponse(UploadedFile uploadedFile) {
     Resource fileToDownload = filesService.download(uploadedFile.getName());
     long contentLength = 0;
 
